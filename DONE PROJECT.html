@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bon Jour</title>
+  <style>
+    /* CSS styles for the header, forms, footer, etc. */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #ffcccc;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 b {
+      font-family: 'Arial Black', sans-serif;
+      font-size: 32px;
+      animation: glowing 2s infinite;
+    }
+    @keyframes glowing {
+      0% { color: #ff0000; }
+      50% { color: #ff3333; }
+      100% { color: #ff0000; }
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      margin: 50px auto;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    main h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+    footer {
+      background-color: #ffcccc;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script>
+    var users = [
+      { email: "user1@example.com", password: "password1" },
+      { email: "user2@example.com", password: "password2" }
+    ];
+
+    function signIn() {
+      var email = document.getElementById("signInEmail").value;
+      var password = document.getElementById("signInPassword").value;
+
+      var authenticatedUser = users.find(function(user) {
+        return user.email === email && user.password === password;
+      });
+
+      if (authenticatedUser) {
+        window.location.href = "homepage.html"; // Redirect on successful sign in
+      } else {
+        alert("Invalid email or password. Please try again.");
+      }
+    }
+
+    function signUp() {
+      var email = document.getElementById("signUpEmail").value;
+      var password = document.getElementById("signUpPassword").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+
+      // Added stronger password validation
+      if (!isStrongPassword(password)) {
+        alert("Password must be at least 8 characters long, include a number, an uppercase letter, and a lowercase letter.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+
+      var existingUser = users.find(function(user) {
+        return user.email === email;
+      });
+
+      if (existingUser) {
+        alert("Email is already registered. Please sign in or use a different email.");
+      } else {
+        users.push({ email: email, password: password });
+        alert("Sign up successful! Please sign in with your new account.");
+        showSignIn(); // Automatically show the sign in form after successful sign up
+      }
+    }
+
+    function isStrongPassword(password) {
+      var regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
+      return regex.test(password);
+    }
+
+    function togglePasswordVisibility(inputId) {
+      var passwordInput = document.getElementById(inputId);
+      if (passwordInput) {
+        passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+      }
+    }
+
+    function showSignUp() {
+      document.getElementById("signInForm").style.display = "none";
+      document.getElementById("signUpForm").style.display = "block";
+    }
+
+    function showSignIn() {
+      document.getElementById("signUpForm").style.display = "none";
+      document.getElementById("signInForm").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1><b>BON JOUR KOREAN RESTAURANT</b></h1>
+  </header>
+  <main>
+    <div class="container" id="signInForm">
+      <h2>Sign In</h2>
+      <form onsubmit="signIn(); return false;">
+        <label for="signInEmail">Email:</label>
+        <input type="email" id="signInEmail" required>
+        <label for="signInPassword">Password:</label>
+        <input type="password" id="signInPassword" required>
+        <input type="checkbox" onclick="togglePasswordVisibility('signInPassword')"> Show Password
+        <input type="submit" value="Sign In">
+      </form>
+      <button onclick="showSignUp()">Don't have an account? Sign up</button>
+    </div>
+    <div class="container" id="signUpForm" style="display: none;">
+      <h2>Sign Up</h2>
+      <form onsubmit="signUp(); return false;">
+        <label for="signUpEmail">Email:</label>
+        <input type="email" id="signUpEmail" required>
+        <label for="signUpPassword">Password:</label>
+        <input type="password" id="signUpPassword" required>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" required>
+        <input type="checkbox" onclick="togglePasswordVisibility('signUpPassword'); togglePasswordVisibility('confirmPassword')"> Show Passwords
+        <input type="submit" value="Sign Up">
+      </form>
+      <button onclick="showSignIn()">Already have an account? Sign in</button>
+    </div>
+  </main>
+  <footer
+    
