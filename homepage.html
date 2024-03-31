@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>homepage.html</title>
+  <style>
+    /* CSS styles for the header, main content, footer, etc. */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3; /* Light brown background */
+    }
+
+    header {
+      background-color: #f8f8f8;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    header h1 {
+      color: #ff0000;
+      font-size: 24px;
+      padding: 10px;
+      border: 2px solid #ff0000;
+      display: inline-block;
+      margin-top: 0;
+    }
+
+    main {
+      margin: 20px;
+    }
+
+    main p {
+      font-style: italic;
+    }
+
+    main h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="button"] {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+
+    /* Confirmation message styles */
+    #confirmationMessage {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f8f8f8;
+      display: none;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      background-color: #f8f8f8;
+      padding: 10px;
+      text-align: center;
+      border-top: 2px solid #e0e0e0;
+    }
+  </style>
+  <script>
+    let cart = []; // Array to hold the orders
+    let selectedPayment = ""; // Variable to hold the selected payment method
+
+    function addToCart() {
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const product = document.getElementById("order").value;
+      const drinkType = document.getElementById("drinkType").value;
+      const drinkSize = document.getElementById("drinkSize").value;
+      const quantity = parseInt(document.getElementById("quantity").value, 10);
+      
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address ending with '@gmail.com'.");
+        return;
+      }
+
+      if (!validatePhoneNumber(phone)) {
+        alert("Please enter a 11-digit phone number.");
+        return;
+      }
+
+      if (product === "" || quantity <= 0) {
+        alert("Please select a product and enter a valid quantity.");
+        return;
+      }
+
+      let price = getPrice(product, drinkSize);
+      if (price === -1) {
+        alert("The selected product is not recognized. Please choose from the available options.");
+        return;
+      }
+
+      const total = price * quantity;
+      cart.push({ product, drinkType, drinkSize, quantity, total });
+
+      const cartItems = document.getElementById("cartItems");
+      const listItem = document.createElement("li");
+      listItem.textContent = `${quantity} x ${product} with ${drinkSize} ${drinkType} (${price} each): ₱${total}`;
+      cartItems.appendChild(listItem);
+
+      document.getElementById("cart").style.display = "block";
+    }
+
+    function submitForm() {
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address ending with '@gmail.com'.");
+        return;
+      }
+
+      if (!validatePhoneNumber(phone)) {
+        alert("Please enter a 11-digit phone number.");
+        return;
+      }
+
+      if (cart.length === 0) {
+        alert("Your cart is empty. Please add items before submitting.");
+        return;
+      }
+
+      const confirmationMessage = document.getElementById("confirmationMessage");
+      const confirmationText = document.getElementById("confirmationText");
+      let grandTotal = 0;
+      let orderDetails = "";
+
+      cart.forEach((item) => {
+        orderDetails += `${item.quantity} x ${item.product} with ${item.drinkSize} ${item.drinkType} (${getPrice(item.product, item.drinkSize)} each): ₱${item.total}<br>`;
+        grandTotal += item.total;
+      });
+
+      confirmationText.innerHTML =
+        "Thank you for your order!<br><br>Email: " +
+        email +
+        "<br>Phone Number: " +
+        phone +
+        "<br><br>Order Details:<br>" +
+        orderDetails +
+        "<br>Grand Total: ₱" +
+        grandTotal.toFixed(2) +
+        "<br>Payment: " +
+        selectedPayment;
+      confirmationMessage.style.display = "block";
+
+      document.getElementById("orderForm").reset();
+      cart = [];
+      document.getElementById("cartItems").innerHTML = "";
+      document.getElementById("cart").style.display = "none";
+      document.getElementById("orderMenu").style.display = "none";
+      document.getElementById("introMenu").style.display = "none";
+    }
+
+    function getPrice(product, drinkSize) {
+      let basePrice = 0;
+      switch (product) {
+        case "Chicken Meals with Drinks":
+          basePrice = 200;
+          break;
+        case "Chicken Nuggets Meal with Drinks":
+          basePrice = 170;
+          break;
+        case "Chicken Adobo Meals with Drinks":
+          basePrice = 220;
+          break;
+        case "Chicken with Extra Rice and Drinks":
+          basePrice = 220;
+          break;
+        case "Burger with Drinks":
+          basePrice = 120;
+          break;
+        default:
+          return -1; // Set the default price to -1 for unknown items
+      }
+
+      switch (drinkSize) {
+        case "Medium":
+          return basePrice + 30;
+        case "Large":
+          return basePrice + 45;
+        default:
+          return basePrice;
+      }
+    }
+
+    function confirmPayment() {
+      switch (selectedPayment) {
+        case "Gcash":
+          window.open("https://www.gcash.com", "_blank");
+          break;
+        case "PayMaya":
+         window.open("https://www.paymaya.com", "_blank");
+          break;
+        case "Paypal":
+          window.open("https://www.paypal.com", "_blank");
+          break;
+        case "COD":
+          alert("Your order will be paid when delivered.");
+          break;
+        default:
+          break;
+      }
+    }
+
+    function cancelPayment() {
+      document.getElementById("orderMenu").style.display = "block";
+      document.getElementById("introMenu").style.display = "block";
+      document.getElementById("confirmationMessage").style.display = "none";
+    }
+
+    function updatePaymentMethod() {
+      selectedPayment = document.getElementById("payment").value;
+    }
+
+    function validateEmail(email) {
+      var regex = /^[^\s@]+@gmail\.com$/; // Email should end with @gmail.com
+      return regex.test(email);
+    }
+
+    function validatePhoneNumber(phone) {
+      var regex = /^\d{11}$/;
+      return regex.test(phone);
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1><b style="animation: glowing 2s infinite;">BON JOUR KOREAN RESTAURANT™</b></h1>
+    <style>
+      /* Glowing animation */
+      @keyframes glowing {
+        0% {
+          color: #ff0000;
+        }
+        50% {
+          color: #ff3333;
+        }
+        100% {
+          color: #ff0000;
+        }
+      }
+    </style>
+  </header>
+  
+  <main>
+    <!-- Introduction Menu -->
+    <div id="introMenu">
+      <h2>Introduction:</h2>
+      <p><i>Welcome to Bon Jour Korean Restaurant, founded by the esteemed future criminal programmer Bon Jour. His passion for coding and dedication to learn led to create this website for testing purposes only. He takes this project seriously, working tirelessly day and night to provide a seamless and enjoyable experience that he ever had in his life. Feel free to explore and let us know if you have any questions, except bugs:).</i></p>
+    </div>
+
+    <!-- Menu with Prices -->
+    <div>
+      <h2>Menu with Prices:</h2>
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Chicken Meals with Drinks</td>
+          <td>₱200</td>
+        </tr>
+        <tr>
+          <td>Chicken Nuggets Meal with Drinks</td>
+          <td>₱170</td>
+        </tr>
+        <tr>
+          <td>Chicken Adobo Meals with Drinks</td>
+          <td>₱220</td>
+        </tr>
+        <tr>
+          <td>Chicken with Extra Rice and Drinks</td>
+          <td>₱220</td>
+        </tr>
+        <tr>
+          <td>Burger with Drinks</td>
+          <td>₱120</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Order Menu -->
+    <div id="orderMenu">
+      <h2>Order Form:</h2>
+      <form id="orderForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" pattern="[0-9]{11}" required><br><br>
+
+        <label for="order">Product:</label>
+        <select id="order" name="order" required>
+          <option value="">Select a product</option>
+          <option value="Chicken Meals with Drinks">Chicken Meals with Drinks</option>
+          <option value="Chicken Nuggets Meal with Drinks">Chicken Nuggets Meal with Drinks</option>
+          <option value="Chicken Adobo Meals with Drinks">Chicken Adobo Meals with Drinks</option>
+          <option value="Chicken with Extra Rice and Drinks">Chicken with Extra Rice and Drinks</option>
+          <option value="Burger with Drinks">Burger with Drinks</option>
+        </select><br><br>
+
+        <!-- Added: Drink Type and Size -->
+        <label for="drinkType">Drink Type:</label>
+        <select id="drinkType" name="drinkType">
+          <option value="Coke">Coke</option>
+          <option value="Sprite">Sprite</option>
+          <option value="Royal">Royal</option>
+          <option value="Nestea">Nestea</option>
+        </select><br><br>
+
+        <label for="drinkSize">Drink Size:</label>
+        <select id="drinkSize" name="drinkSize">
+          <option value="Regular">Regular</option>
+          <option value="Medium">Medium (+₱30)</option>
+          <option value="Large">Large (+₱45)</option>
+        </select><br><br>
+
+        <!-- End of Added -->
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+        <label for="payment">Mode of Payment:</label>
+        <select id="payment" name="payment" onchange="updatePaymentMethod()">
+          <option value="">Select a payment method</option>
+          <option value="Gcash">Gcash</option>
+          <option value="PayMaya">PayMaya</option>
+          <option value="Paypal">Paypal</option>
+          <option value="COD">Cash on Delivery</option>
+        </select><br><br>
+
+        <input type="button" value="Add to Cart" onclick="addToCart()">
+        <input type="button" value="Submit" onclick="submitForm()">
+      </form>
+    </div>
+
+    <!-- Cart -->
+    <div id="cart" style="display: none;">
+      <h2>Cart:</h2>
+      <ul id="cartItems"></ul>
+    </div>
+
+    <!-- Confirmation Message -->
+    <div id="confirmationMessage" style="display: none;">
+      <h2>Order Receipt:</h2>
+      <p id="confirmationText"></p>
+      <p>Do you want to proceed to the selected payment method?</p>
+      <button onclick="confirmPayment()">Yes</button>
+      <button onclick="cancelPayment()">No</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Bon Jour Korean Restaurant. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
