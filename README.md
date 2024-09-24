@@ -1,8 +1,8 @@
 - 👋 Hi, I’m @Jury018
-- 👀 I’m interested in YOU❤️
-- 🌱 I’m currently learning HTML,CSS,JS,SQL, PYTHON,JAVA,AND MORE.
-- 💞️ I’m looking to collaborate on Government Agency 
-- 📫 How to reach me is if you are interested to reach your goals
+- 👀 I’m interested in programming 
+- 🌱 I’m currently learning HTML,CSS,JS,PYTHON,JAVA,AND MORE.
+- 💞️ I’m looking to collaborate on Government Agency/Private Agency that are accepting newly experience people and able to learn
+- 📫 How to reach me? you can reach me through email or Facebook 
 - 😄 Pronouns:nahh
 - ⚡ Fun fact: nahh
 
