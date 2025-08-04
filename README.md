@@ -9,7 +9,7 @@
 
 - 👯 I’m looking to collaborate with **Graphic Designer**
 
-- 👨‍💻 All of my projects are available at [https://my-portfolio-bonfire-s-projects.vercel.app/](https://my-portfolio-bonfire-s-projects.vercel.app/)
+- 👨‍💻 All of my projects are available at [https://www.bonfire.base69.me](https://www.bonfire.base69.me)
 
 - 📝 My itch.io profile [https://bonfire69.itch.io](https://bonfire69.itch.io)
 
@@ -19,7 +19,7 @@
 
 - 📄 Know about my experiences [https://bonfire69.my.canva.site/bonfire-resume](https://bonfire69.my.canva.site/bonfire-resume)
 
-- ⚡ Fun fact **I think what I think I am**
+- ⚡ Fun fact **You’re not “learning” if you’re just watching. Code or be coded.**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
