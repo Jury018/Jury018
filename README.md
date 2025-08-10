@@ -5,7 +5,7 @@
 
 - 🔭 I’m currently working on **App Applications**
 
-- 🌱 I’m currently learning **Frameworks, Data Structures and Algorithms**
+- 🌱 I’m currently learning **Frameworks, AI Automations and Game Development**
 
 - 👯 I’m looking to collaborate with **Graphic Designer**
 
