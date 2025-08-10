@@ -7,7 +7,7 @@
 
 - 🌱 I’m currently learning **Frameworks, AI Automations and Game Development**
 
-- 👯 I’m looking to collaborate with **Graphic Designer**
+- 👯 I’m looking to collaborate with **Graphic Designer,and Developers**
 
 - 👨‍💻 All of my projects are available at [https://www.bonfire.base69.me](https://www.bonfire.base69.me)
 
