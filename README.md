@@ -25,7 +25,7 @@
 
 - 📄 Know about my experiences [https://bonfire69.my.canva.site/bonfire-resume](https://bonfire69.my.canva.site/bonfire-resume)
 
-- ⚡ Fun fact **You’re not learning if you’re just watching. Code or be coded.**
+- ⚡ Fun fact **They code for presentation, I code for production..**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
