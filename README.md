@@ -1,11 +1,9 @@
 <h1 align="center">Hi 👋, I'm Bon Jury Pecaoco</h1>
-<h3 align="center">Aspiring Software Engineer | Developer</h3>
+<h3 align="center">Aspiring Software Engineer | Software Developer</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=jury018&label=Profile%20views&color=0e75b6&style=flat-square" alt="jury018" /> </p>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=jury018" alt="jury018" /></a> </p>
-
-<p align="left"> <a href="https://twitter.com/bonfire404.io" target="blank"><img src="https://img.shields.io/twitter/follow/bonfire404.io?logo=twitter&style=for-the-badge" alt="bonfire404.io" /></a> </p>
 
 - 🔭 I’m currently working on [Cross Platform Application](https://bonfire69.itch.io/)
 
@@ -19,7 +17,7 @@
 
 - 📝 I write articles and dev logs on [https://dev.to/bonfire_base](https://dev.to/bonfire_base)
 
-- 💬 Ask me about **Dart, Javascript, Java, React, Python, and Markup Language**
+- 💬 Ask me about **Dart, Kotlin, Javascript, Java, React, Python, and Markup Language**
 
 - 📫 How to reach me **bonfirebase69@gmail.com | jurypecaoco5360@gmail.com**
 
