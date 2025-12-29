@@ -13,7 +13,7 @@
 
 - 🤝 I’m looking for help with **AI Automation and UI enhancement**
 
-- 👨‍💻 All of my projects are available at [https://www.bonfire.base69.me](https://www.bonfire.base69.me)
+- 👨‍💻 All of my projects are available at [https://www.bonfire.base69.me](https://www.portfolio.base69.me)
 
 - 📝 I write articles and dev logs on [https://dev.to/bonfire_base](https://dev.to/bonfire_base)
 
