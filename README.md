@@ -11,7 +11,7 @@
 
 - 👯 I’m looking to collaborate on **Graphic Designer, and Developers**
 
-- 🤝 I’m looking for help with **AI Automation and UI enhancement**
+- 🤝 Feel free to explore our startup company [BONFIRE BASE](https://bonfire.base69.me)
 
 - 👨‍💻 All of my projects are available at [https://www.portfolio.base69.me](https://www.portfolio.base69.me)
 
