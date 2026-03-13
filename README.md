@@ -13,7 +13,7 @@
 
 - 🤝 Feel free to explore our startup company [BONFIRE BASE](https://bonfire.base69.studio)
 
-- 👨‍💻 All of my projects are available at [https://www.portfolio.base69.me](https://portfolio.base69.studio)
+- 👨‍💻 All of my projects are available at [https://www.portfolio.base69.studio](https://portfolio.base69.studio)
 
 - 📝 I write articles and dev logs on [https://dev.to/bonfire_base](https://dev.to/bonfire_base)
 
