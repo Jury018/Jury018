@@ -21,7 +21,7 @@
 
 - 📫 How to reach me **bonfirebase69@gmail.com | jurypecaoco5360@gmail.com**
 
-- 📄 Know about my experiences [https://bonfire69.my.canva.site/bonfire-resume](https://bonfire69.my.canva.site/bonfire-resume)
+- 📄 Know about my experiences [RESUME](https://portfolio.base69.studio/files/PECAOCO,%20BON%20JURY%20S.%20(RESUME).pdf)
 
 - ⚡ Fun fact **You’re not learning if you’re just watching. Code or be coded.**
 
