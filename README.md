@@ -5,15 +5,15 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=jury018" alt="jury018" /></a> </p>
 
-- 🔭 I’m currently working on [Cross Platform Application](https://bonfire69.itch.io/)
+- 🔭 I’m currently working on [ClassPilot App](https://classpilot.base69.studio). You can guys check my other app on [itch.io](https://bonfire69.itch.io/)
 
-- 🌱 I’m currently learning **Frameworks, AI Automations and Game Development**
+- 🌱 I’m currently learning **Advanced Frameworks, AI Orchestration and Game Development**
 
 - 👯 I’m looking to collaborate on **Graphic Designer, and Developers**
 
 - 🤝 Feel free to explore our startup company [BONFIRE BASE](https://bonfire.base69.studio)
 
-- 👨‍💻 All of my projects are available at [https://www.portfolio.base69.studio](https://portfolio.base69.studio)
+- 👨‍💻 All of my projects are available at [Checkout my Portfolio](https://portfolio.base69.studio)
 
 - 📝 I write articles and dev logs on [https://dev.to/bonfire_base](https://dev.to/bonfire_base)
 
